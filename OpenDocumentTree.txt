@@ -1,0 +1,14 @@
+﻿JButton btnChonHinh = new JButton("...");
+		btnChonHinh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser jfc = new JFileChooser("src/images");
+				jfc.setDialogTitle("Hãy chọn một tập tin hình ảnh");
+				jfc.setFileFilter(new FileNameExtensionFilter("Các tập tin *.jpg", "jpg"));
+				jfc.setFileFilter(new FileNameExtensionFilter("Các tập tin *.png", "png"));
+				int chon = jfc.showOpenDialog(rootPane);
+				if(chon==JFileChooser.APPROVE_OPTION) {
+					File file = jfc.getSelectedFile();
+					txtTapTin.setText(file.getAbsolutePath());
+				}
+			}
+		});
